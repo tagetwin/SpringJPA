@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.star.blog.domain.entity.BoardEntity;
+import com.star.blog.domain.entity.Board;
 import com.star.blog.repository.BoardRepository;
 
 @RunWith(SpringRunner.class)
@@ -36,16 +36,16 @@ class BlogApplicationTests {
     @Test
     public void 게시글저장_불러오기() {
         //given
-    	boardRepository.save(BoardEntity.builder()
+    	boardRepository.save(Board.builder()
                 .title("테스트 게시글")
                 .content("테스트 본문")
                 .build());
 
         //when
-        List<BoardEntity> boardList = boardRepository.findAll();
+        List<Board> boardList = boardRepository.findAll();
 
         //then
-        BoardEntity boardEntity = boardList.get(0);
+        Board boardEntity = boardList.get(0);
         assertThat(boardEntity.getTitle(), is("테스트 게시글"));
         assertThat(boardEntity.getContent(), is("테스트 본문"));
     }
@@ -54,15 +54,15 @@ class BlogApplicationTests {
     public void BaseTimeEntity_등록 () {
         //given
         LocalDateTime now = LocalDateTime.now();
-        boardRepository.save(BoardEntity.builder()
+        boardRepository.save(Board.builder()
                 .title("테스트 게시글")
                 .content("테스트 본문")
                 .build());
         //when
-        List<BoardEntity> boardList = boardRepository.findAll();
+        List<Board> boardList = boardRepository.findAll();
 
         //then 
-        BoardEntity board = boardList.get(0);
+        Board board = boardList.get(0);
         assertTrue(board.getCreatedDate().isAfter(now));
         assertTrue(board.getModifiedDate().isAfter(now));
     }

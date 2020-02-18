@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Table(name = "board")
-public class BoardEntity extends BaseTimeEntity{
+public class Board extends BaseTimeEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class BoardEntity extends BaseTimeEntity{
 	private String content;
 
 	@Builder
-	public BoardEntity(String title, String content) {
+	public Board(String title, String content) {
 		this.title = title;
 		this.content = content;
 	}

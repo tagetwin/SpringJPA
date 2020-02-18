@@ -1,6 +1,6 @@
 package com.star.blog.domain.dto;
 
-import com.star.blog.domain.entity.BoardEntity;
+import com.star.blog.domain.entity.Board;
 
 import lombok.Builder;
 import lombok.Data;
@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReqSaveDto {
 	
-	private Long id;
+	private long id;
     private String title;
     private String content;
 	
-    public BoardEntity toEntity(){
-        return BoardEntity.builder()
+    public Board toEntity(){
+        return Board.builder()
                 .title(title)
                 .content(content)
                 .build();
@@ -23,6 +23,7 @@ public class ReqSaveDto {
 
     @Builder
 	public ReqSaveDto(String title, String content) {
+    	
 		this.title = title;
 		this.content = content;
 	}
