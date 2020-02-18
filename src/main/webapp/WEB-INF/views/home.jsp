@@ -39,14 +39,15 @@
 	<br>
 
 	<div class="container">
-		<a href="/write">글쓰기</a>
-		<table class="table" border="1">
+		<a href="/write">글쓰기페이지로</a>
+		<table class="table table-dark" border="1">
 			<tr>
-				<td>번호</td>
+				<td>번호</td> 
 				<td>제목</td>
 				<td>내용</td>
-				<td>수정날짜</td>
-				<td>변경</td>
+				<td>날짜</td>
+				<td>삭제</td>
+				<td>수정</td>
 			</tr>
 			<c:forEach var="board" items="${board}">
 				<tr>
@@ -64,6 +65,7 @@
 	<!-- 부트스트랩 js, jquery 추가 -->
 	<script src="/js/lib/jquery-3.4.1.min.js"></script>
 	<script src="/js/lib/bootstrap.min.js"></script>
+	<script src="http://localhost:35729/livereload.js"></script> 
 <script>
 	
 

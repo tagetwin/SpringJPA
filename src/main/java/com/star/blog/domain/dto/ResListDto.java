@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class ResListDto {
 
-	private long id;
+	private Long id;
 	private String title;
 	private String content;
 	private String modifiedDate;

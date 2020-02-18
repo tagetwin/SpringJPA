@@ -2,12 +2,14 @@ package com.star.blog.domain.dto;
 
 import com.star.blog.domain.entity.Board;
 
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
+@NoArgsConstructor
 public class ResDetailDto {
 
-	private long id;
+	private Long id;
 	private String title;
 	private String content;
 	

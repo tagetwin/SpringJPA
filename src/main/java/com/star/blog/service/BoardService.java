@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.star.blog.domain.dto.ReqSaveDto;
-import com.star.blog.domain.dto.ReqUpdateDto;
 import com.star.blog.domain.dto.ResDetailDto;
 import com.star.blog.domain.dto.ResListDto;
 import com.star.blog.repository.BoardRepository;
@@ -54,8 +53,7 @@ public class BoardService {
 	}
 	
 	@Transactional
-	public Long update(ReqUpdateDto dto) {
-		return boardRepository.save(dto.toEntity()).getId();
+	public Long update(ReqSaveDto dto) {
+		return boardRepository.save(dto.toEntity()).getId();  
 	}
-	
 }

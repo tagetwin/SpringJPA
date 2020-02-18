@@ -9,23 +9,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ReqSaveDto {
-	
-	private long id;
-    private String title;
-    private String content;
-	
-    public Board toEntity(){
-        return Board.builder()
-                .title(title)
-                .content(content)
-                .build();
-    }
 
-    @Builder
+	private Long id;
+	private String title;
+	private String content;
+
+	public Board toEntity() {
+		return Board.builder().title(title).content(content).build();
+	}
+
+	@Builder
 	public ReqSaveDto(String title, String content) {
-    	
 		this.title = title;
 		this.content = content;
 	}
-    
+
 }

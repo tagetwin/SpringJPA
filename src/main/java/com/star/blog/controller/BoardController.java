@@ -7,9 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.star.blog.domain.dto.ReqSaveDto;
-import com.star.blog.domain.dto.ReqUpdateDto;
 import com.star.blog.domain.dto.ResDetailDto;
 import com.star.blog.domain.dto.ResListDto;
 import com.star.blog.service.BoardService;
@@ -63,15 +65,15 @@ public class BoardController {
 		return "update";
 	}
 	
-	@PostMapping("/update/{id}")
-	public String update(@PathVariable long id, ReqUpdateDto dto) {
-		System.out.println("============");
-		System.out.println(dto.getId());
-		dto.setId(id);
-		System.out.println("============");
-		boardService.update(dto);
+	@PutMapping("/update")
+	public @ResponseBody String update(@RequestBody ReqSaveDto dto) {
 		
-		return "redirect:/";
+		ResDetailDto board= boardService.findById(dto.getId());
+		board.setTitle(dto.getTitle());
+		board.setContent(dto.getContent());
+//		boardService.update(board);
+		boardService.save(dto);
+		return "ok";
 	}
 	
 }

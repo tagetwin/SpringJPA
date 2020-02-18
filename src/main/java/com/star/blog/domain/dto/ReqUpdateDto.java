@@ -1,7 +1,5 @@
 package com.star.blog.domain.dto;
 
-import com.star.blog.domain.entity.Board;
-
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,20 +8,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReqUpdateDto {
 
-	private long id;
+	private Long id;
 	private String title;
 	private String content;
 
-	public Board toEntity() {
-		return Board.builder()
-				.title(title)
-				.content(content)
-				.build();
+	public ReqUpdateDto toEntity() {
+		return ReqUpdateDto.builder().title(title).content(content).build();
 	}
 
-	 @Builder
-		public ReqUpdateDto(String title, String content) {
-			this.title = title;
-			this.content = content;
-		}
+	@Builder
+	public ReqUpdateDto(String title, String content) {
+		this.title = title;
+		this.content = content;
+	}
 }
